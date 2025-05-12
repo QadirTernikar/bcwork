@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            padding-top: 50px; /* Adjusts content to be aligned at the top */
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #FF5733;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #6C757D;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s 0.5s forwards;
+        }
+
+        #adminTable {
+            width: 80%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 1s 1s forwards;
+        }
+
+        #adminTable thead {
+            background-color: #FF5733;
+            color: white;
+        }
+
+        #adminTable th, #adminTable td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        #adminTable tbody tr {
+            background-color: #f9f9f9;
+            transition: transform 0.3s ease-in-out;
+            opacity: 0;
+            animation: popUp 0.5s ease-out forwards;
+        }
+
+        #adminTable tbody tr:hover {
+            background-color: #e7f1ff;
+            transform: translateY(-5px);
+        }
+
+        #adminTable tbody tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+
+        #adminTable tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        #adminTable td {
+            font-size: 16px;
+            color: #495057;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes popUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #adminTable tbody tr:nth-child(1) {
+            animation-delay: 1.5s;
+        }
+
+        #adminTable tbody tr:nth-child(2) {
+            animation-delay: 1.6s;
+        }
+
+        #adminTable tbody tr:nth-child(3) {
+            animation-delay: 1.7s;
+        }
+
+        #adminTable tbody tr:nth-child(4) {
+            animation-delay: 1.8s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Pending Documents</h2>
+    <table id="adminTable">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Document</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <script src="../public/js/admin.js" defer></script>
+</body>
+</html>
