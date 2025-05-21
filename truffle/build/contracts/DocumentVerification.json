@@ -2014,10 +2014,16 @@
       "links": {},
       "address": "0x69A8682b4372061e9DBa1225966B18B06F6Aa206",
       "transactionHash": "0x70e1fe78a5931ea183546cb26178105c969bd1b3512d0d7be35f7891a583f6a5"
+    },
+    "1747838676202": {
+      "events": {},
+      "links": {},
+      "address": "0xBBc69135F9dB443C61A8F23C1f77a13c0FaBCf5D",
+      "transactionHash": "0x9dd3c997a34b4dae2f588db17435276be234d7cad6ecc2989d64ad52b3ef5819"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-05-12T09:29:21.707Z",
+  "updatedAt": "2025-05-21T14:45:25.104Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

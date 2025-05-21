@@ -990,7 +990,7 @@
   "sourceMap": "60:568:0:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "60:568:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;338:287;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;411:9;:23;421:12;411:23;;;;;;;;;;;;;;;;;;;;;410:24;402:60;;;;;;;;;;;;:::i;:::-;;;;;;;;;537:4;511:9;:23;521:12;511:23;;;;;;;;;;;;:30;;;;;;;;;;;;;;;;;;604:12;586:31;;;;;;;;;;338:287;:::o;7:139:2:-;53:5;91:6;78:20;69:29;;107:33;134:5;107:33;:::i;:::-;7:139;;;;:::o;152:329::-;211:6;260:2;248:9;239:7;235:23;231:32;228:119;;;266:79;;:::i;:::-;228:119;386:1;411:53;456:7;447:6;436:9;432:22;411:53;:::i;:::-;401:63;;357:117;152:329;;;;:::o;487:366::-;629:3;650:67;714:2;709:3;650:67;:::i;:::-;643:74;;726:93;815:3;726:93;:::i;:::-;844:2;839:3;835:12;828:19;;487:366;;;:::o;859:419::-;1025:4;1063:2;1052:9;1048:18;1040:26;;1112:9;1106:4;1102:20;1098:1;1087:9;1083:17;1076:47;1140:131;1266:4;1140:131;:::i;:::-;1132:139;;859:419;;;:::o;1365:169::-;1449:11;1483:6;1478:3;1471:19;1523:4;1518:3;1514:14;1499:29;;1365:169;;;;:::o;1540:77::-;1577:7;1606:5;1595:16;;1540:77;;;:::o;1746:117::-;1855:1;1852;1845:12;1869:173;2009:25;2005:1;1997:6;1993:14;1986:49;1869:173;:::o;2048:122::-;2121:24;2139:5;2121:24;:::i;:::-;2114:5;2111:35;2101:63;;2160:1;2157;2150:12;2101:63;2048:122;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract DocumentValidation {\r\n    // Mapping to store submitted document hashes\r\n    mapping(bytes32 => bool) private documents;\r\n\r\n    // Event to log document submission\r\n    event DocumentSubmitted(bytes32 indexed documentHash);\r\n\r\n    // Function to submit a document\r\n    function submitDocument(bytes32 documentHash) public {\r\n        require(!documents[documentHash], \"Document already exists\");\r\n\r\n        // Store the document hash\r\n        documents[documentHash] = true;\r\n\r\n        // Emit the event\r\n        emit DocumentSubmitted(documentHash);\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\AnuRaG\\Desktop\\digital\\digital\\truffle\\contracts\\document.sol",
+  "sourcePath": "/home/ubuntu/DevOps/truffle/contracts/document.sol",
   "ast": {
     "absolutePath": "project:/contracts/document.sol",
     "exportedSymbols": {
@@ -1433,7 +1433,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-05-12T09:28:52.936Z",
+  "updatedAt": "2025-05-21T14:45:17.673Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
