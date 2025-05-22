@@ -1,3 +1,5 @@
+require("dotenv").config();  // Load environment variables
+
 const express = require("express");
 const mongoose = require("mongoose");
 const multer = require("multer");
@@ -12,9 +14,10 @@ const { PDFDocument } = require("pdf-lib");
 
 const app = express();
 
-// Connect to Ganache
-const web3 = new Web3("http://127.0.0.1:7545");
+// Connect to Ganache using env variable or default
+const web3 = new Web3(process.env.GANACHE_URL || "http://127.0.0.1:7545");
 
+// Load Smart Contracts
 function loadContract(contractName) {
   const artifact = JSON.parse(
     fs.readFileSync(path.join(`../truffle/build/contracts/${contractName}.json`))
@@ -33,7 +36,7 @@ const verificationContract = new web3.eth.Contract(Verification.abi, Verificatio
 
 // Middleware
 app.use(cors({
-  origin: 'http://http://13.50.167.182',  // Replace with your frontend URL or IP
+  origin: process.env.FRONTEND_URL || "*",
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -42,7 +45,7 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose.connect(
-  "mongodb+srv://anuragchougule0160:4yYYz9EkTsxthOpU@cluster0.z1whqqm.mongodb.net/blockchain",
+  process.env.MONGODB_URI || "mongodb://localhost:27017/blockchain",
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
   .then(() => console.log("MongoDB connected"))
@@ -69,7 +72,7 @@ const User = mongoose.model("User", userSchema);
 const Document = mongoose.model("Document", documentSchema);
 const upload = multer({ storage: multer.memoryStorage() });
 
-const FromAddress = "0x7f0EeD042004A22e8C24956e569A2Ceb1fA68208";
+const FromAddress = process.env.FROM_ADDRESS || "0x7f0EeD042004A22e8C24956e569A2Ceb1fA68208";
 
 async function addLogo(binaryData, fileType) {
   try {
@@ -238,5 +241,6 @@ app.delete("/admin/reject/:id", async (req, res) => {
   }
 });
 
-const PORT = 5000;
+// Server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => console.log(`Server running on http://0.0.0.0:${PORT}`));
