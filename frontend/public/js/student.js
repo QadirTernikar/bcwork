@@ -19,7 +19,7 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
     const user = { firstName, lastName, srn, mobileNumber, email, password };
 
     try {
-        const response = await fetch("http://13.50.167.182:5000/student/register", {
+        const response = await fetch(`${BACKEND_URL}/student/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user),
@@ -45,7 +45,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://13.50.167.182:5000/student/login", {
+        const response = await fetch(`${BACKEND_URL}/student/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
@@ -77,7 +77,7 @@ document.getElementById("uploadForm")?.addEventListener("submit", async (e) => {
     formData.append("studentId", localStorage.getItem("userId"));
 
     try {
-        const response = await fetch("http://13.50.167.182:5000/student/upload", {
+        const response = await fetch(`${BACKEND_URL}/student/upload`, {
             method: "POST",
             body: formData,
         });
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const userId = localStorage.getItem("userId");
-        const response = await fetch(`http://13.50.167.182:5000/student/documents/${userId}`);
+        const response = await fetch(`${BACKEND_URL}/student/documents/${userId}`);
         const documents = await response.json();
 
         documents.forEach((doc) => {
